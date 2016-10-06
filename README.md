@@ -37,7 +37,8 @@ Card.tokenize(String cardNumber, String cvv, String expiryMonth, String expiryYe
 ```javascript
 {"responsecode":"00","responsemessage":"Completed Successfully","otptransactionidentifier":null,"transactionreference":null,"responsehtml":null,"responsetoken":"hWflntv6As0P1C96796","requiresValidation":false}
 ```
-
+<br/>
+<hr>
 #### Card.charge() - Calls card charge endpoint
 
 ```
