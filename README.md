@@ -55,7 +55,7 @@ Card.charge(String amount, String cardNumber, String cvv, String expiryMonth, St
 #### Card.validate() - Calls card validate endpoint
 
 ```
-Card.charge(String otpTransactionIdentifier, String otp)
+Card.validate(String otpTransactionIdentifier, String otp)
 ```
 
 ###### Sample successful response:
