@@ -145,6 +145,8 @@ public class Card {
         }
     }
     
+    //To be uncommented once updated
+    
 //    public static String status(String transactionReference) throws Exception{
 //        URL url = new URL("http://flutterwaveapi.herokuapp.com/card/status");
 //        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
