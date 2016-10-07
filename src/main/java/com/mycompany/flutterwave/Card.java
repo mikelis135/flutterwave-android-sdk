@@ -54,6 +54,7 @@ public class Card {
             BufferedReader reader= new BufferedReader(new InputStreamReader(connection.getErrorStream()));
             String response= reader.readLine();
             JSONObject responseObject = new JSONObject(response); 
+            response = responseObject.getString("data");
             return response;
             
         }
@@ -101,13 +102,14 @@ public class Card {
             BufferedReader reader= new BufferedReader(new InputStreamReader(connection.getErrorStream()));
             String response= reader.readLine();
             JSONObject responseObject = new JSONObject(response); 
+            response = responseObject.getString("data");
             return response;
             
         }
     }
     
     public static String validate(String otpTransactionIdentifier, String otp) throws Exception{
-        URL url = new URL("http://flutterwaveapi.herokuapp.com/card/charge");
+        URL url = new URL("http://flutterwaveapi.herokuapp.com/card/validate");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         
         try{
@@ -137,9 +139,49 @@ public class Card {
             BufferedReader reader= new BufferedReader(new InputStreamReader(connection.getErrorStream()));
             String response= reader.readLine();
             JSONObject responseObject = new JSONObject(response); 
+            response = responseObject.getString("data");
             return response;
             
         }
     }
+    
+//    public static String status(String transactionReference) throws Exception{
+//        URL url = new URL("http://flutterwaveapi.herokuapp.com/card/status");
+//        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+//        
+//        try{
+//            String xTag = new index().initialize();
+//            String decodedXTag = new index().decodeXTag(xTag);
+//            connection.setRequestMethod("POST");
+//            connection.setRequestProperty("x-tag", xTag);
+//            connection.setRequestProperty("Content-type", "application/json");
+//            connection.setDoOutput(true);
+//            JSONObject request= new JSONObject();
+//            JSONObject data = new JSONObject();
+//            data.put("trxreference", transactionReference);
+//            
+//            request.put("secureData", new index().encrypt(data.toString(), decodedXTag));
+////            System.out.println(xTag);
+////            System.out.println(request.toString());
+//            DataOutputStream writer= new DataOutputStream(connection.getOutputStream());
+//            writer.writeBytes(request.toString());
+//            writer.flush();
+//            writer.close();
+//            BufferedReader reader= new BufferedReader(new InputStreamReader(connection.getInputStream()));
+//            String response= reader.readLine();
+//            JSONObject responseObject = new JSONObject(response);
+//            String encryptedString = responseObject.getString("data");
+//            String decryptedString= new index().decrypt(encryptedString, decodedXTag);
+//            return decryptedString;
+//        }
+//        catch(Exception ex){
+//            BufferedReader reader= new BufferedReader(new InputStreamReader(connection.getErrorStream()));
+//            String response= reader.readLine();
+//            JSONObject responseObject = new JSONObject(response); 
+//            response = responseObject.getString("data");
+//            return response;
+//            
+//        } 
+//    }
     
 }
