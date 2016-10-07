@@ -1,1 +1,66 @@
-"# flutterwave-android-sdk" 
+# Flutterwave Android SDK
+
+An Android SDK consuming the Flutterwave Node API      (https://github.com/Flutterwave/nodeAPI)
+
+### Flutterwave Services
+
+- Currently Available:
+  - Card :
+    - Tokenize
+    - Charge
+    - Validate
+- Todo:
+    - Card:
+        - Charge With Token
+        - Preauth
+        - Capture
+        - Refund
+        - Void
+        - Enquiry
+        - Validate Enquiry
+        - Withdraw
+        - Status
+    - Account
+    - ACH
+    - BVN
+
+### Implementation
+
+#### Card.tokenize() - Calls card tokenize endpoint
+
+```
+Card.tokenize(String cardNumber, String cvv, String expiryMonth, String expiryYear, String validateOption, String authModel)
+```
+
+###### Sample successful response:
+
+```javascript
+{"responsecode":"00","responsemessage":"Completed Successfully","otptransactionidentifier":null,"transactionreference":null,"responsehtml":null,"responsetoken":"hWflntv6As0P1C96796","requiresValidation":false}
+```
+<br/>
+<hr>
+#### Card.charge() - Calls card charge endpoint
+
+```
+Card.charge(String amount, String cardNumber, String cvv, String expiryMonth, String expiryYear, String currency, String customerId, String authModel, String narration, String country)
+```
+
+###### Sample successful response:
+
+```javascript
+
+```
+<br/>
+<hr>
+#### Card.validate() - Calls card validate endpoint
+
+```
+Card.validate(String otpTransactionIdentifier, String otp)
+```
+
+###### Sample successful response:
+
+```javascript
+
+```
+
